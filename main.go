@@ -1,6 +1,7 @@
 package main
 
 import (
+	"finalpro/model"
 	"fmt"
 
 	"github.com/spf13/viper"
@@ -35,5 +36,12 @@ func main() {
 	}
 	defer sqlDB.Close()
 
-	fmt.Println("Connection successful")
+	//fmt.Println("Connection successful")
+
+	customer := []model.Customer{}
+	result := db.Find(&customer)
+	if result.Error != nil {
+		panic(result.Error)
+	}
+	fmt.Println(customer)
 }
