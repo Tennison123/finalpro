@@ -19,3 +19,17 @@ type Customer struct {
 func (m *Customer) TableName() string {
 	return "customer"
 }
+
+type LoginRequest struct {
+	Email    string `json:"email" binding:"required"`
+	Password string `json:"password" binding:"required"`
+}
+
+type UpdateAddressRequest struct {
+	Address string `json:"address" binding:"required"`
+}
+
+type LoginResponse struct {
+	Customer Customer `json:"customer"`
+	Token    string   `json:"token"`
+}

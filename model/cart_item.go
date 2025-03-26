@@ -13,6 +13,6 @@ type CartItem struct {
 	UpdatedAt  time.Time `gorm:"column:updated_at;default:CURRENT_TIMESTAMP"`
 }
 
-func (m *CartItem) TableName() string {
+func (CartItem) TableName() string {
 	return "cart_item"
 }
